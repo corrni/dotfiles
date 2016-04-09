@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH="$HOME/.dotfiles"
 
@@ -33,6 +34,15 @@ done
 
 unset config_files
 
+# zsh-history-substring-search #
+zmodload zsh/terminfo
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down
+
+# "Emacs" mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 [[ -a ~/.localrc ]] && source ~/.localrc
@@ -42,3 +52,5 @@ source '/Users/bruno/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/Users/bruno/google-cloud-sdk/completion.zsh.inc'
+
+source `brew --prefix nvm`/nvm.sh

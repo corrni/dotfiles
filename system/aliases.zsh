@@ -1,8 +1,10 @@
 #!/bin/sh
+
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
 alias wtf="imgcat ~/.dotfiles/imgs/wtf.gif"
+
 # shellcheck disable=SC2039
 if gls &>/dev/null; then
   alias ls="gls -F --color"
