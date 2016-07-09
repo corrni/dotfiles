@@ -28,6 +28,7 @@ unless ENV['TRAVIS_JOB_ID']
     brew 'the_silver_searcher'
     brew 'unrar'
     brew 'vim'
+    brew 'nvim'
     brew 'wget'
     brew 'zsh'
 
@@ -47,22 +48,44 @@ unless ENV['TRAVIS_JOB_ID']
     tap 'caskroom/versions'
 
     cask 'android-file-transfer'
+    cask 'synology-assitant'
+
     cask 'appcleaner'
     cask 'diffmerge'
     cask 'font-hack'
-    cask 'iterm2-beta'
+    # cask 'iterm2-beta'
+    cask 'iterm2-nightly'
     cask 'the-unarchiver'
+
+    # media
     cask 'vlc'
+    cask 'plex-media-server'
+    cask 'webtorrent'
 
     # https://github.com/sindresorhus/quick-look-plugins
-    # cask 'qlcolorcode'
-    # cask 'qlimagesize'
-    # cask 'qlmarkdown'
-    # cask 'qlprettypatch'
-    # cask 'qlstephen'
-    # cask 'quicklook-csv'
-    # cask 'quicklook-json'
-    # cask 'suspicious-package'
-    # cask 'webpquicklook'
+    cask 'epubquicklook'
+    cask 'qlcolorcode'
+    cask 'qlimagesize'
+    cask 'qlmarkdown'
+    cask 'qlprettypatch'
+    cask 'qlstephen'
+    cask 'quicklook-csv'
+    cask 'quicklook-json'
+    cask 'suspicious-package'
+    cask 'webpquicklook'
+
+    # dev tools
+    cask 'visual-studio-code'
+    cask 'atom-beta'
+    cask 'sublime-text'
+    cask 'intellij-idea'
+    cask 'pycharm'
+    cask 'rubymine'
+    cask 'webstorm'
+    cask 'datagrip'
+    cask 'clion'
+
+    cask 'gitkraken'
+    cask 'graphiql'
   end
 end
