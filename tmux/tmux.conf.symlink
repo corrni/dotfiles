@@ -1,0 +1,51 @@
+# tmux config file; partly adapted from:
+# 	- http://www.drbunsen.org/text-triumvirate.html
+# 	- http://robots.thoughtbot.com/post/2166174647/love-hate-tmux
+#   - tmux prag. book (http://pragprog.com/book/bhtmux/tmux)
+
+# set Zsh as your default Tmux shell
+set-option -g default-shell /usr/local/bin/zsh
+
+# act like vim
+setw -g mode-keys vi
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+
+# tweak for split windows
+#  	Prefix--  :  Prefix-""
+#   Prefix-|  :  Prefix-%
+bind | split-window -h
+bind - split-window -v
+
+# 'Ctrl-a' is now the prefix
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix 	# send the prefix through to Vim, bash, etc...
+
+unbind C-r
+bind r source-file ~/.tmux.conf \; display "Reloaded!" 	# reloading config is Prefix-r
+
+set -g mouse on
+set -sg escape-time 1 		# remove default delay
+set -g base-index 1			# start window numbering at 1, instead of 0
+
+# TPM plugins
+# 	- tmux-themepack
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'jimeh/tmux-themepack'
+
+set -g @themepack 'block/gray'
+
+# Set up tmux-powerline
+run-shell "powerline-daemon -q"
+#source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+run "powerline-config tmux setup"
+
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

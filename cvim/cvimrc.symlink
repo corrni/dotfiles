@@ -1,0 +1,58 @@
+set regex
+set noinsertmappings
+set noautofocus
+set nativelinkorder
+set autohidecursor
+set smoothscroll
+let scrollduration = 10
+
+set scalehints
+set nodimhintcharacters
+set typelinkhints
+let hintcharacters = "hklyuionmwertxcvbasdgjf"
+
+" search settings
+set ignorecase
+set smartcase
+set incsearch
+let searchlimit = 30
+let completionengines = ['google', 'google-image', 'youtube', 'duckduckgo', 'wikipedia']
+let searchalias g = "google"
+
+" PREV-NEXT mappings
+" the pattern looked for when navigating a page's back button
+let previousmatchpattern = "((?!last)(prev(ious)?|back|«|less|<|‹| )+)"
+" the pattern looked for when navigation a page's next button
+let nextmatchpattern = "((?!first)(next|more|>|›|»|forward| )+)"
+
+" Mappings
+let mapleader = ","
+
+" Shortcuts to fav. sites/apps
+map <Leader>ex :tabopen chrome://extensions<CR>
+
+map <Leader>gh :tabopen https://github.com/corrni<CR>
+map <Leader>Gh :open https://github.com/corrni<CR>
+map <Leader>gi :tabopen https://gist.github.com/corrni<CR>
+map <Leader>Gi :open https://gist.github.com/corrni<CR>
+map <Leader>so :tabopen http://stackoverflow.com<CR>
+map <Leader>So :open http://stackoverflow.com<CR>
+
+let blacklists = [ "*://*/*.pdf","*://*corrni*", "*://docs.google.com/*", "*://drive.google.com/*", "https://*swedbank.se/*"]
+
+site 'https://github.com/*' {
+    unmap l
+}
+
+site 'https://corrni.slack.com/*' {
+	unmap /
+}
+
+site 'https://sourcegraph.com/*' {
+    unmap t
+}
+
+" Only read settings from .cvimrc config file
+let configpath = '/Users/bruno/.cvimrc'
+set localconfig
+

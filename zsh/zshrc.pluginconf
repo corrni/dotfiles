@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# initialize autocomplete here, otherwise functions won't be loaded
+# autoload -U compinit && compinit
+
 # zaw #
 autoload -Uz is-at-least
 if is-at-least 4.3.11; then
@@ -20,3 +23,32 @@ precmd() {
 # pure prompt
 autoload -U promptinit && promptinit
 prompt pure
+
+unset COMPLETION_WAITING_DOTS # https://github.com/tarruda/zsh-autosuggestions#known-issues
+export DISABLE_AUTO_TITLE=true
+export DISABLE_CORRECTION=true
+#export DISABLE_UNTRACKED_FILES_DIRTY=true # Improves repo status check time.
+export DISABLE_UPDATE_PROMPT=true
+export FZF_DEFAULT_COMMAND='ag -l -g ""' # Use ag as the default source for fzf
+export FZF_DEFAULT_OPTS='--multi'
+export NOTIFY_COMMAND_COMPLETE_TIMEOUT=300
+export UPDATE_ZSH_DAYS=1
+export ZSH_PLUGINS_ALIAS_TIPS_TEXT='    '
+
+
+### AUTOSUGGESTIONS ###
+if zplug check zsh-users/zsh-autosuggestions; then
+  ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down) # Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
+  ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}") # Remove *-line-or-history widgets from list of widgets that clear the autosuggestion to avoid conflict with history-substring-search-* widgets
+fi
+
+### KEY BINDINGS ###
+KEYTIMEOUT=1 # Prevents key timeout lag.
+bindkey -v
+
+# Bind UP and DOWN arrow keys for subsstring search.
+if zplug check zsh-users/zsh-history-substring-search; then
+  zmodload zsh/terminfo
+  bindkey "$terminfo[kcuu1]" history-substring-search-up
+  bindkey "$terminfo[kcud1]" history-substring-search-down
+fi
