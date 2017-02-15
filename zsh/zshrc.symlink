@@ -59,34 +59,11 @@ export PATH=$HOME/.cargo/bin:$PATH
 # required config for (rust) racer
 export RUST_SRC_PATH=$PWD/rust-1.9.0/src
 
-
-# jenv setup (multiple jdks)
-export JENV_ROOT=/usr/local/var/jenv
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home
-
-# groovy env vars
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
-
-# sbtenv
-export PATH=$HOME/.sbtenv/bin:$PATH
-eval "$(sbtenv init -)"
-
 # initialize rbenv
 eval "$(rbenv init -)"
 
 # Initialize nvm
 source `brew --prefix nvm`/nvm.sh
-
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-[[ -a ~/.localrc ]] && source ~/.localrc
-
-
-# Google Cloud SDK (PATH & completion)
-source '/Users/bruno/opt/google-cloud-sdk/path.zsh.inc'
-source '/Users/bruno/opt/google-cloud-sdk/completion.zsh.inc'
 
 # github API token
 # (to get read of Github API request quota, e.g. use by Homebrew)
@@ -95,15 +72,10 @@ export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
 # Slack API Token
 export SLACK_API_TOKEN="xoxp-24601011460-24604241219-39093398930-77c021dfbc"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# base16_solarized-light color scheme
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$(BASE16_SHELL/profile_helper.sh)"
+base16_solarized-light
 
-###-tns-completion-start-###
-if [ -f /Users/bruno/.tnsrc ]; then
-    source /Users/bruno/.tnsrc
-fi
-###-tns-completion-end-###
-
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+# use .localrc for SUPER SECRET CRAP that you don't
+[[ -a ~/.localrc ]] && source ~/.localrc

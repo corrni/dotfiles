@@ -8,6 +8,8 @@ mvn() {
   which notify-send > /dev/null && notify-send "$message"
 }
 
+alias javarepl='java -jar /Users/bruno/opt/java-repl/javarepl.jar'
+
 alias mvncie='mvn clean install eclipse:eclipse'
 alias mvnci='mvn clean install'
 alias mvne='mvn eclipse:eclipse'
