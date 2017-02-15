@@ -40,8 +40,8 @@ zplug "caarlos0/zsh-mkc"
 zplug "walesmd/caniuse.plugin.zsh"
 
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", nice:18
-zplug "zsh-users/zsh-history-substring-search", nice:19
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "zsh-users/zsh-history-substring-search", defer:3
 
 
 if ! zplug check --verbose; then

@@ -62,8 +62,9 @@ export RUST_SRC_PATH=$PWD/rust-1.9.0/src
 # initialize rbenv
 eval "$(rbenv init -)"
 
-# Initialize nvm
-source `brew --prefix nvm`/nvm.sh
+# NVM
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 # github API token
 # (to get read of Github API request quota, e.g. use by Homebrew)
@@ -74,8 +75,7 @@ export SLACK_API_TOKEN="xoxp-24601011460-24604241219-39093398930-77c021dfbc"
 
 # base16_solarized-light color scheme
 BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$(BASE16_SHELL/profile_helper.sh)"
-base16_solarized-light
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # use .localrc for SUPER SECRET CRAP that you don't
 [[ -a ~/.localrc ]] && source ~/.localrc
