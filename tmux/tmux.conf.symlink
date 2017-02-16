@@ -33,19 +33,13 @@ set -g mouse on
 set -sg escape-time 1 		# remove default delay
 set -g base-index 1			# start window numbering at 1, instead of 0
 
+# Tmuxline setup
+source-file ~/.tmuxline.tmux.conf
+
 # TPM plugins
 # 	- tmux-themepack
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'jimeh/tmux-themepack'
-
-set -g @themepack 'block/gray'
-
-# Set up tmux-powerline
-run-shell "powerline-daemon -q"
-#source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
-run "powerline-config tmux setup"
-
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
