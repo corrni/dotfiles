@@ -7,3 +7,4 @@ fi
 
 # add brew zsh completions folder
 fpath=(/usr/local/share/zsh/site-functions $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)

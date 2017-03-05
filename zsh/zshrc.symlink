@@ -50,14 +50,13 @@ bindkey "$terminfo[cud1]" history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
-# Add a few directories to PATH
-#   - $HOME/bin
-#   - Cargo bins ($HOME/.cargo/bin)
+# own bin + k6
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
 
-# required config for (rust) racer
-export RUST_SRC_PATH=$PWD/rust-1.9.0/src
+# RUST: Cargo & rust src (required for `racer` to work)
+export PATH=$HOME/.cargo/bin:$PATH
+export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # initialize rbenv
 eval "$(rbenv init -)"
@@ -79,3 +78,5 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # use .localrc for SUPER SECRET CRAP that you don't
 [[ -a ~/.localrc ]] && source ~/.localrc
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
