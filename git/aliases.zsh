@@ -17,6 +17,8 @@ alias gs='git status -sb'
 alias gcb='git-copy-branch-name'
 alias gpr='gp && open-pr'
 
+alias gf='git flow' # git-flow
+
 gi() {
   curl -s "https://www.gitignore.io/api/$*";
 }

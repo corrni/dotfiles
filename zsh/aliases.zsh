@@ -11,3 +11,7 @@ alias reload!='__reload_dotfiles'
 
 # easier directory deletion
 alias rmf='rm -rf'
+
+# Mix tasks
+alias iem='iex -S mix'
+alias iemp='iex -S mix phoenix.server'

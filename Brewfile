@@ -28,7 +28,6 @@ unless ENV['TRAVIS_JOB_ID']
     brew 'the_silver_searcher'
     brew 'unrar'
     brew 'vim'
-    brew 'nvim'
     brew 'wget'
     brew 'zsh'
 
