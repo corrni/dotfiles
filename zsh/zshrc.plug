@@ -19,16 +19,16 @@ _Z_CMD=j
 export ENHANCD_COMMAND=dc
 
 
-##################
-# Plugin load    #
-##################
+# git
 zplug "olivierverdier/zsh-git-prompt", use:"*.sh"
+zplug "bobthecow/git-flow-completion"
+zplug "mollifier/cd-gitroot"
+
 zplug "zsh-users/zaw"
 # zplug "hchbaw/auto-fu.zsh", at:pu
 zplug "rupa/z", use:"*.sh"
 zplug "djui/alias-tips"
 zplug "zsh-users/zsh-completions"
-zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "mollifier/anyframe"
 zplug "mafredri/zsh-async"
