@@ -3,8 +3,8 @@
 alias g='git'
 
 # cloning from github
-alias gch='f() { git clone git@github.com:${1} };f'
-alias gchl='f() { git clone https://github.com/${1} };f'
+alias gch='f() { git clone git@github.com:${1}.git };f'
+alias gchl='f() { git clone https://github.com/${1}.git };f'
 
 alias gcl='git clone'
 
