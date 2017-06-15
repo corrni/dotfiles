@@ -50,8 +50,14 @@ bindkey "$terminfo[cud1]" history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
-# own bin + k6
+# own bin
 export PATH=$HOME/bin:$PATH
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/py_environments
+source /usr/local/bin/virtualenvwrapper.sh
+
+# k6 tool
 export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
 
 # RUST: Cargo & rust src (required for `racer` to work)
@@ -61,7 +67,7 @@ export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/
 # initialize rbenv
 eval "$(rbenv init -)"
 
-# NVM
+# nvm
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 

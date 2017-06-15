@@ -7,10 +7,9 @@
 # fi
 # source ~/.zplug/zplug
 
-# NOTE: Use brew zplug package
+# use brew zplug package
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
-
 
 # z #
 _Z_CMD=j
@@ -23,6 +22,9 @@ export ENHANCD_COMMAND=dc
 zplug "olivierverdier/zsh-git-prompt", use:"*.sh"
 zplug "bobthecow/git-flow-completion"
 zplug "mollifier/cd-gitroot"
+
+# heroku cli
+zplug "plugins/heroku", from:oh-my-zsh
 
 zplug "zsh-users/zaw"
 # zplug "hchbaw/auto-fu.zsh", at:pu
@@ -38,7 +40,7 @@ zplug "caarlos0/zsh-mkc"
 
 zplug "walesmd/caniuse.plugin.zsh"
 
-# zplug "jimhester/per-directory-history"
+zplug "jimhester/per-directory-history"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "zsh-users/zsh-history-substring-search", defer:3

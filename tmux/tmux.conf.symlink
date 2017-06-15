@@ -36,10 +36,14 @@ set -g base-index 1			# start window numbering at 1, instead of 0
 # Tmuxline setup
 source-file ~/.tmuxline.tmux.conf
 
+# Re-attach tmux-spawned shells to user namespace
+# SEE: https://goo.gl/44h7Rv
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
 # TPM plugins
 # 	- tmux-themepack
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+# tpm init - MUST BE LAST LINE
 run '~/.tmux/plugins/tpm/tpm'
