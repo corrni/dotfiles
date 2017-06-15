@@ -1,6 +1,11 @@
 #!/bin/sh
 
 alias g='git'
+
+# cloning from github
+alias gch='f() { git clone git@github.com:${1} };f'
+alias gchl='f() { git clone https://github.com/${1} };f'
+
 alias gcl='git clone'
 
 alias gl='git pull --prune'
@@ -25,6 +30,7 @@ alias gpr='gp && open-pr'
 
 alias gf='git flow' # git-flow
 
+# .gitignore generator
 gi() {
   curl -s "https://www.gitignore.io/api/$*";
 }

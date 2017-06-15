@@ -9,6 +9,9 @@ __reload_dotfiles() {
 }
 alias reload!='__reload_dotfiles'
 
+# virtualenvwrapper
+alias wo='workon'
+
 # easier directory deletion
 alias rmf='rm -rf'
 
