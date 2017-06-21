@@ -2,11 +2,10 @@
 
 alias g='git'
 
-# cloning from github
-alias gch='f() { git clone git@github.com:${1}.git };f'
-alias gchl='f() { git clone https://github.com/${1}.git };f'
-
+# cloning repos (esp. from github)
 alias gcl='git clone'
+alias gch='f() { git clone https://github.com/${1}.git };f'
+alias gchl='f() { git clone git@github.com:${1}.git };f'
 
 alias gl='git pull --prune'
 alias glg="git log --graph --decorate --oneline --abbrev-commit"

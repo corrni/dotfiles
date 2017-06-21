@@ -1,4 +1,5 @@
 #!/bin/sh
+
 brew() {
   case "$1" in
     cleanup)
@@ -16,3 +17,7 @@ brew() {
       ;;
   esac
 }
+
+
+# caskroom
+alias cask='brew cask'

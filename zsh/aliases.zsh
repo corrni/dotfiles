@@ -4,16 +4,17 @@
 __reload_dotfiles() {
   PATH="$(command -p getconf PATH):/usr/local/bin"
   # shellcheck disable=SC1090
-  . ~/.zshrc
+  source $HOME/.zshrc
   cd . || return 1
 }
 alias reload!='__reload_dotfiles'
 
+# shell nice-to-haves
+alias rmf='rm -rf'
+alias pwdc='pwd | pbcopy'
+
 # virtualenvwrapper
 alias wo='workon'
-
-# easier directory deletion
-alias rmf='rm -rf'
 
 # Mix tasks
 alias iem='iex -S mix'
