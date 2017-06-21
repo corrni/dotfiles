@@ -9,6 +9,9 @@ export PROJECTS="$HOME/code"
 # path to (work) journal
 export JOURNAL_DIR="$HOME/Google Drive/notes"
 
+# github API token (request quota issue)
+export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
+
 # set locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -67,16 +70,20 @@ export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/
 # initialize rbenv
 eval "$(rbenv init -)"
 
-# nvm
+# NODE: nvm, yarn
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+source "/usr/local/opt/nvm/nvm.sh"
+# tabtab source for yarn package - uninstall with `tabtab uninstall yarn`
+[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
 
-# github API token
-# (to get read of Github API request quota, e.g. use by Homebrew)
-export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
 
-# Slack API Token
-export SLACK_API_TOKEN="xoxp-24601011460-24604241219-39093398930-77c021dfbc"
+# ASDF: erlang, elixir
+source "/usr/local/Cellar/asdf/0.3.0/asdf.sh"
+source "/usr/local/Cellar/asdf/0.3.0/etc/bash_completion.d/asdf.bash"
+
+# asdf-erlang build options
+export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt/openssl --with-wx"
+
 
 # base16_solarized-light color scheme
 BASE16_SHELL=$HOME/.config/base16-shell/
@@ -88,10 +95,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/corrni/.sdkman"
 [[ -s "/Users/corrni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/corrni/.sdkman/bin/sdkman-init.sh"
-
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/corrni/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/path.zsh.inc'; fi
