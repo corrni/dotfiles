@@ -57,6 +57,7 @@ bindkey -M emacs '^N' history-substring-search-down
 export PATH=$HOME/bin:$PATH
 
 # virtualenvwrapper
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export WORKON_HOME=$HOME/py_environments
 source /usr/local/bin/virtualenvwrapper.sh
 
