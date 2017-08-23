@@ -27,7 +27,10 @@ alias gs='git status -sb'
 alias gcb='git-copy-branch-name'
 alias gpr='gp && open-pr'
 
-alias gf='git flow' # git-flow
+# git flow
+alias gf='git flow'
+alias gff='git flow feature'
+alias gfr='git flow release'
 
 # .gitignore generator
 gi() {
