@@ -22,6 +22,7 @@ alias gcm='git commit -m'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gcam='git commit -a -m'
+alias gcAm='git add . && git commit -m'
 
 alias gs='git status -sb'
 alias gcb='git-copy-branch-name'
