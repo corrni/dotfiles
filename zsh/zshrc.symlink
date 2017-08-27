@@ -2,19 +2,18 @@
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH="$HOME/.dotfiles"
+export PROJECTS="$HOME/code"                    # your project `c [tab]`
+export JOURNAL_DIR="$HOME/Google Drive/notes"   # work journal
 
-# your project folder that we can `c [tab]` to
-export PROJECTS="$HOME/code"
-
-# path to (work) journal
-export JOURNAL_DIR="$HOME/Google Drive/notes"
-
-# github API token (request quota issue)
-export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
-
-# set locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
+
+# [base16] color schemes helper
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+####
 
 # all of our zsh files
 typeset -U config_files
@@ -53,52 +52,47 @@ bindkey "$terminfo[cud1]" history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
-# own bin
+# own bins
 export PATH=$HOME/bin:$PATH
 
-# virtualenvwrapper
+# [ruby] initialize rbenv
+eval "$(rbenv init -)"
+
+# [python] virtualenvwrapper
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export WORKON_HOME=$HOME/py_environments
 source /usr/local/bin/virtualenvwrapper.sh
 
-# k6 tool
-export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
-
-# RUST: Cargo & rust src (required for `racer` to work)
+# [rust]
 export PATH=$HOME/.cargo/bin:$PATH
+# required for `racer`
 export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
-# initialize rbenv
-eval "$(rbenv init -)"
-
-# NODE: nvm, yarn
+# [node] nvm, yarn-completions
 export NVM_DIR="$HOME/.nvm"
 source "/usr/local/opt/nvm/nvm.sh"
 # tabtab source for yarn package - uninstall with `tabtab uninstall yarn`
 [[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
 
-
-# ASDF: erlang, elixir
+# [asdf] erlang, elixir
 source "/usr/local/Cellar/asdf/0.3.0/asdf.sh"
 source "/usr/local/Cellar/asdf/0.3.0/etc/bash_completion.d/asdf.bash"
-
-# asdf-erlang build options
 export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt/openssl --with-wx"
 
+# [misc] dev tools, cli candy, ...
+export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
+eval "$(thefuck --alias)"
 
-# base16_solarized-light color scheme
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+###
+
+# gcloud cli
+if [ -f '/Users/corrni/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/corrni/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/completion.zsh.inc'; fi
 
 # use .localrc for SUPER SECRET CRAP that you don't
 [[ -a ~/.localrc ]] && source ~/.localrc
 
+# JVM stuff
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/corrni/.sdkman"
 [[ -s "/Users/corrni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/corrni/.sdkman/bin/sdkman-init.sh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/corrni/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/corrni/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/completion.zsh.inc'; fi
