@@ -24,7 +24,7 @@ zplug "djui/alias-tips"
 
 # completions
 zplug "zsh-users/zsh-completions"
-zplug "felixr/docker-zsh-completion"
+# zplug "felixr/docker-zsh-completion"
 zplug "bobthecow/git-flow-completion"
 
 zplug "b4b4r07/enhancd", use:enhancd.sh

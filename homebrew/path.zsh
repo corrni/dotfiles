@@ -1,6 +1,5 @@
-#!/bin/sh
-if [ -d "$HOME/.linuxbrew/bin" ]; then
-  export PATH="$HOME/.linuxbrew/bin:$PATH"
-  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-fi
+#!/usr/bin/env zsh
+
+# brew zsh completions
+# fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh/site-functions $fpath)
