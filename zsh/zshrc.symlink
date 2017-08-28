@@ -19,20 +19,19 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 typeset -U config_files
 config_files=($ZSH/*/*.zsh)
 
+source "$ZSH/zsh/zshrc.plug"
+
 # load the path files
-source "$ZSH/homebrew/path.zsh"
+# source "$ZSH/homebrew/path.zsh"
 for file in ${(M)config_files:#*/path.zsh}; do
   source "$file"
 done
-
-source "$ZSH/zsh/zshrc.plug"
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source "$file"
 done
 
-# FIXME: duplicated in ./zshrc.pluginconf
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit && compinit
 
@@ -41,16 +40,10 @@ for file in ${(M)config_files:#*/completion.zsh}; do
   source "$file"
 done
 
+# homebrew zsh completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 unset config_files
-
-# zsh-history-substring-search #
-zmodload zsh/terminfo
-bindkey "$terminfo[cuu1]" history-substring-search-up
-bindkey "$terminfo[cud1]" history-substring-search-down
-
-# "Emacs" mode
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
 
 # own bins
 export PATH=$HOME/bin:$PATH
@@ -81,6 +74,7 @@ export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt
 
 # [misc] dev tools, cli candy, ...
 export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
+# eval "$(docker-machine env)"
 eval "$(thefuck --alias)"
 
 ###
