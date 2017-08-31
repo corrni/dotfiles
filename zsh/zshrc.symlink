@@ -72,10 +72,16 @@ source "/usr/local/Cellar/asdf/0.3.0/asdf.sh"
 source "/usr/local/Cellar/asdf/0.3.0/etc/bash_completion.d/asdf.bash"
 export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt/openssl --with-wx"
 
-# [misc] dev tools, cli candy, ...
+# [misc]
 export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
-# eval "$(docker-machine env)"
 eval "$(thefuck --alias)"
+
+# Use kitematic-provided docker machine
+if docker-machine status default | grep 'Running' > /dev/null; then
+    eval "$(docker-machine env default)"
+else
+    echo "Default docker-machine is not running..."
+fi
 
 ###
 
