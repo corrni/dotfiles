@@ -23,7 +23,7 @@ zplug "rupa/z", use:"*.sh"
 zplug "djui/alias-tips"
 
 # completions
-# zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-completions"
 # zplug "felixr/docker-zsh-completion"
 zplug "bobthecow/git-flow-completion"
 

@@ -21,7 +21,7 @@ alias yrl='yarn run lint'
 
 # flow
 alias fts='flow-typed search'
-alias ftd='flow-typed --flowVersion=0.53.1'
+alias ftd='flow-typed --flowVersion=0.54.1'
 
 # for chrome headless
 # SEE: https://developers.google.com/web/updates/2017/04/headless-chrome
