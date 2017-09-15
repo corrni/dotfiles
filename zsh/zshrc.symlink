@@ -9,6 +9,20 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
 
+# use squid cache if it's listening
+export PROXY_PORT=3128
+if netstat -lant -p TCP | grep -qs "\.$PROXY_PORT.*\*\.\*.*LISTEN"; then
+    export HTTP_PROXY=http://127.0.0.1:$PROXY_PORT
+    export HTTPS_PROXY=http://127.0.0.1:$PROXY_PORT
+    export FTP_PROXY=http://127.0.0.1:$PROXY_PORT
+    export http_proxy=http://127.0.0.1:$PROXY_PORT
+    export https_proxy=http://127.0.0.1:$PROXY_PORT
+    export ftp_proxy=http://127.0.0.1:$PROXY_PORT
+else
+    unset PROXY_PORT
+fi
+
+
 # [base16] color schemes helper
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
@@ -64,6 +78,28 @@ export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/
 # [node] nvm, yarn-completions
 export NVM_DIR="$HOME/.nvm"
 source "/usr/local/opt/nvm/nvm.sh"
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # tabtab source for yarn package - uninstall with `tabtab uninstall yarn`
 [[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
 
@@ -96,6 +132,7 @@ export GCLOUD_ZONE="$(gcloud config get-value compute/zone -q)"
 
 # use .localrc for SUPER SECRET CRAP that you don't
 [[ -a ~/.localrc ]] && source ~/.localrc
+[[ -a $PROJECTS/SECRETS ]] && source $PROJECTS/SECRETS
 
 # JVM stuff
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
