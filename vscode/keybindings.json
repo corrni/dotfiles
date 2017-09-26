@@ -1,0 +1,28 @@
+;[
+  { 
+    "key": "ctrl+cmd+o",        
+    "command": "newFile.createNewFile" 
+  },
+
+  // Emmet
+  {
+    "key": "ctrl+cmd+e",
+    "command": "editor.emmet.action.expandAbbreviation"
+  }
+
+  // emacs-y keybindings
+  { 
+    "key": "ctrl+a",
+    "command": "cursorHome",
+    "when": "editorTextFocus" 
+  },
+  {
+    "key": "ctrl+e",
+    "command": "cursorEnd",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+/",
+    "command": "workbench.action.toggleStatusbarVisibility"
+  }
+]

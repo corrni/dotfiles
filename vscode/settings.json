@@ -1,0 +1,78 @@
+{
+    "workbench.colorTheme": "Solarized-light",
+    "workbench.iconTheme": "vscode-icons",
+
+    // vim-mode settings
+    "vim.enableNeovim": false,
+    "vim.easymotion": true,
+    "vim.leader": ",",
+    "vim.hlsearch": true,
+    "vim.statusBarColorControl": true,
+    "vim.disableAnnoyingNeovimMessage": true,
+
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
+    "editor.cursorBlinking": "solid",
+    "workbench.activityBar.visible": false,
+
+    "editor.snippetSuggestions": "inline",
+    "window.zoomLevel": 0,
+    "files.associations": {
+      "*.eex": "erb",
+      "*.css": "css"
+    },
+
+    // zenmode
+    "zenMode.fullScreen": false,
+    "zenMode.restore": true,
+    "workbench.statusBar.visible": false,
+
+    // Settings sync
+    "sync.gist": "910c32021dd937df07b0c216e0a8921c",
+    "sync.lastUpload": "",
+    "sync.autoDownload": false,
+    "sync.autoUpload": true,
+    "sync.lastDownload": "2017-05-09T00:44:00.550Z",
+    "sync.forceDownload": false,
+    "sync.anonymousGist": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+
+    // flowtype settings
+    // "flow.runOnEdit": false,
+
+    // Emmet
+    "emmet.includeLanguages": {"javascript": "javascriptreact"},
+
+    // Advanced New File extension
+    "newFile.defaultFileExtension": "",
+    "newFile.defaultBaseFileName": "file",
+
+    // "erlang.enableExperimentalAutoComplete": true,
+    // "editor.acceptSuggestionOnEnter": "smart",
+    "editor.renderLineHighlight": "gutter",
+    "auto-close-tag.SublimeText3Mode": true,
+    "editor.codeLens": true,
+    "git.confirmSync": false,
+    "editor.minimap.enabled": false,
+
+    "python.venvPath": "/Users/corrni/py_environments",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "json.format.enable": false,
+
+    //=== indent guides ===
+    "editor.renderIndentGuides": false,
+    "guides.overrideDefault": true,
+    "guides.normal.style": "dotted",
+    "guides.normal.color.light": "rgba(220, 220, 220, 0.5)",
+    "guides.stack.enabled": false,
+    "workbench.startupEditor": "none",
+    "sync.askGistName": false,
+    "git.enableSmartCommit": true,
+
+    // Styles & Code formatting
+    "editor.tabSize": 2
+  }
