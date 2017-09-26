@@ -19,6 +19,9 @@ alias yrs='yarn start'
 alias yrt='yarn test'
 alias yrl='yarn run lint'
 
+# create-react-app
+alias cra='create-react-app'
+
 # flow
 alias fts='flow-typed search'
 alias ftd='flow-typed --flowVersion=0.54.1'

@@ -9,20 +9,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
 
-# use squid cache if it's listening
-export PROXY_PORT=3128
-if netstat -lant -p TCP | grep -qs "\.$PROXY_PORT.*\*\.\*.*LISTEN"; then
-    export HTTP_PROXY=http://127.0.0.1:$PROXY_PORT
-    export HTTPS_PROXY=http://127.0.0.1:$PROXY_PORT
-    export FTP_PROXY=http://127.0.0.1:$PROXY_PORT
-    export http_proxy=http://127.0.0.1:$PROXY_PORT
-    export https_proxy=http://127.0.0.1:$PROXY_PORT
-    export ftp_proxy=http://127.0.0.1:$PROXY_PORT
-else
-    unset PROXY_PORT
-fi
-
-
 # [base16] color schemes helper
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

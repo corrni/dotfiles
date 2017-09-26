@@ -8,6 +8,7 @@ __reload_dotfiles() {
   cd . || return 1
 }
 alias reload!='__reload_dotfiles'
+alias souz='source $HOME/.zshrc'
 
 # shell nice-to-haves
 alias rmf='rm -rf'
@@ -21,6 +22,6 @@ alias wo='workon'
 alias iem='iex -S mix'
 alias iemp='iex -S mix phx.server'
 # alias iemp='iex -S mix phoenix.server'
-alias mit='mix test --trace'
-alias mtt='mix test'
+alias mt='mix test'
+alias mtt='mix test --trace'
 alias mto='mix test --only focus'
