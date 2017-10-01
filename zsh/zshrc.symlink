@@ -98,13 +98,6 @@ export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt
 export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
 eval "$(thefuck --alias)"
 
-# Use kitematic-provided docker machine
-if docker-machine status default | grep 'Running' > /dev/null; then
-    eval "$(docker-machine env default)"
-else
-    echo "Default docker-machine is not running..."
-fi
-
 # Postgres.app
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
