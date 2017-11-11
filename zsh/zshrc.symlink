@@ -9,6 +9,21 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
 
+# Use squid
+# export PROXY_HOST=127.0.0.1
+# export PROXY_PORT=3128
+# if netstat -lant -p TCP | grep -qs "\.$PROXY_PORT.*\*\.\*.*LISTEN"; then
+#   export HTTP_PROXY=http://$PROXY_HOST:$PROXY_PORT
+#   export HTTPS_PROXY=http://$PROXY_HOST:$PROXY_PORT
+#   export FTP_PROXY=http://$PROXY_HOST:$PROXY_PORT
+#   export http_proxy=http://$PROXY_HOST:$PROXY_PORT
+#   export https_proxy=http://$PROXY_HOST:$PROXY_PORT
+#   export ftp_proxy=http://$PROXY_HOST:$PROXY_PORT
+# else
+#   unset PROXY_HOST
+#   unset PROXY_PORT
+# fi
+
 # [base16] color schemes helper
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
@@ -22,7 +37,6 @@ config_files=($ZSH/*/*.zsh)
 source "$ZSH/zsh/zshrc.plug"
 
 # load the path files
-# source "$ZSH/homebrew/path.zsh"
 for file in ${(M)config_files:#*/path.zsh}; do
   source "$file"
 done
@@ -39,9 +53,6 @@ autoload -U compinit && compinit
 for file in ${(M)config_files:#*/completion.zsh}; do
   source "$file"
 done
-
-# homebrew zsh completions
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 unset config_files
 

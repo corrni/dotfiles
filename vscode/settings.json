@@ -74,5 +74,6 @@
     "git.enableSmartCommit": true,
 
     // Styles & Code formatting
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "workbench.panel.location": "bottom"
   }
