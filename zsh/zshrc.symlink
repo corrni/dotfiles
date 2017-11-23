@@ -10,7 +10,9 @@ export DOTFILES="$HOME/.dotfiles"
 # project folder that we can `c [tab]` to
 export PROJECTS="$HOME/code"
 
-# Use squid
+# squid cache
+# FSO: auto-discovering the IP that'll work for mac apps as well as
+#      VMs & containers
 export PROXY_HOST=127.0.0.1
 export PROXY_PORT=3128
 if netstat -lant -p TCP | grep -qs "\.$PROXY_PORT.*\*\.\*.*LISTEN"; then
