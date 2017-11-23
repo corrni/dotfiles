@@ -1,5 +1,4 @@
 #!/bin/sh
-
 if [ "$(which go)" ] && [ -n "$GOPATH" ]; then
 	mkdir -p "$GOPATH/bin" "$GOPATH/src/github.com/"
 
