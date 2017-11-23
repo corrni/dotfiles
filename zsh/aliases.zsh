@@ -16,3 +16,5 @@ alias iemp='iex -S mix phx.server'
 alias mt='mix test'
 alias mtt='mix test --trace'
 alias mto='mix test --only focus'
+
+eval "$(thefuck --alias)"

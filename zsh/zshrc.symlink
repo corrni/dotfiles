@@ -107,12 +107,6 @@ load-nvmrc
 
 # [misc]
 export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
-eval "$(thefuck --alias)"
-
-# Docker Toolboxy: envify if `default` machine's running
-if docker-machine status default | grep 'Running' > /dev/null; then
-    eval "$(docker-machine env default)"
-fi
 
 # Postgres.app
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
@@ -127,18 +121,13 @@ if [ -f '/Users/corrni/google-cloud-sdk/completion.zsh.inc' ]; then source '/Use
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# JVM stuff
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# tabtab completions
+[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+
+# JVM
 export SDKMAN_DIR="/Users/corrni/.sdkman"
 [[ -s "/Users/corrni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/corrni/.sdkman/bin/sdkman-init.sh"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
-
 # use .localrc for SUPER SECRET CRAP that you don't
 [[ -a ~/.localrc ]] && source ~/.localrc
-[[ -a $PROJECTS/SECRETS ]] && source $PROJECTS/SECRETS
