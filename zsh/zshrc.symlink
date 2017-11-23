@@ -1,13 +1,14 @@
 #!/usr/bin/env zsh
 
-# shortcut to this dotfiles path is $ZSH
-export ZSH="$HOME/.dotfiles"
-export PROJECTS="$HOME/code"                    # your project `c [tab]`
-export JOURNAL_DIR="$HOME/Google Drive/notes"   # work journal
-
+# set locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
+
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES="$HOME/.dotfiles"
+
+# project folder that we can `c [tab]` to
+export PROJECTS="$HOME/code"
 
 # Use squid
 export PROXY_HOST=127.0.0.1
@@ -24,17 +25,13 @@ else
   unset PROXY_PORT
 fi
 
-# [base16] color schemes helper
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
 ####
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/*/*.zsh)
+config_files=($DOTFILES/*/*.zsh)
 
-source "$ZSH/zsh/zshrc.plug"
+source "$DOTFILES/zsh/zshrc.plug"
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}; do
@@ -125,9 +122,9 @@ export GCLOUD_ZONE="$(gcloud config get-value compute/zone -q)"
 
 ###
 
-# use .localrc for SUPER SECRET CRAP that you don't
-[[ -a ~/.localrc ]] && source ~/.localrc
-[[ -a $PROJECTS/SECRETS ]] && source $PROJECTS/SECRETS
+# [base16] color schemes helper
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # JVM stuff
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -140,3 +137,7 @@ export SDKMAN_DIR="/Users/corrni/.sdkman"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+
+# use .localrc for SUPER SECRET CRAP that you don't
+[[ -a ~/.localrc ]] && source ~/.localrc
+[[ -a $PROJECTS/SECRETS ]] && source $PROJECTS/SECRETS
