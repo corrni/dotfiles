@@ -10,19 +10,19 @@ export LANG=en_US.UTF-8
 export HOMEBREW_GITHUB_API_TOKEN="e4ae9ca7f28e6896a7e81a65760c0b35f16d5b7f"
 
 # Use squid
-# export PROXY_HOST=127.0.0.1
-# export PROXY_PORT=3128
-# if netstat -lant -p TCP | grep -qs "\.$PROXY_PORT.*\*\.\*.*LISTEN"; then
-#   export HTTP_PROXY=http://$PROXY_HOST:$PROXY_PORT
-#   export HTTPS_PROXY=http://$PROXY_HOST:$PROXY_PORT
-#   export FTP_PROXY=http://$PROXY_HOST:$PROXY_PORT
-#   export http_proxy=http://$PROXY_HOST:$PROXY_PORT
-#   export https_proxy=http://$PROXY_HOST:$PROXY_PORT
-#   export ftp_proxy=http://$PROXY_HOST:$PROXY_PORT
-# else
-#   unset PROXY_HOST
-#   unset PROXY_PORT
-# fi
+export PROXY_HOST=127.0.0.1
+export PROXY_PORT=3128
+if netstat -lant -p TCP | grep -qs "\.$PROXY_PORT.*\*\.\*.*LISTEN"; then
+  export HTTP_PROXY=http://$PROXY_HOST:$PROXY_PORT
+  export HTTPS_PROXY=http://$PROXY_HOST:$PROXY_PORT
+  export FTP_PROXY=http://$PROXY_HOST:$PROXY_PORT
+  export http_proxy=http://$PROXY_HOST:$PROXY_PORT
+  export https_proxy=http://$PROXY_HOST:$PROXY_PORT
+  export ftp_proxy=http://$PROXY_HOST:$PROXY_PORT
+else
+  unset PROXY_HOST
+  unset PROXY_PORT
+fi
 
 # [base16] color schemes helper
 BASE16_SHELL=$HOME/.config/base16-shell/
@@ -100,10 +100,10 @@ load-nvmrc
 # tabtab source for yarn package - uninstall with `tabtab uninstall yarn`
 [[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
 
-# [asdf] erlang, elixir
-source "/usr/local/Cellar/asdf/0.3.0/asdf.sh"
-source "/usr/local/Cellar/asdf/0.3.0/etc/bash_completion.d/asdf.bash"
-export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt/openssl --with-wx"
+# erlang, elixir
+. /Users/corrni/kerl/20.1-builtdocs/activate
+#export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt/openssl --with-wx"
+[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
 
 # [misc]
 export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
@@ -133,3 +133,10 @@ export GCLOUD_ZONE="$(gcloud config get-value compute/zone -q)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/corrni/.sdkman"
 [[ -s "/Users/corrni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/corrni/.sdkman/bin/sdkman-init.sh"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
