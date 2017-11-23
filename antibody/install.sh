@@ -6,5 +6,5 @@ else
 	curl -sL https://git.io/antibody | sh -s
 fi
 
-antibody bundle <"$DOTFILES/antibody/bundles.txt" >~/.zsh_plugins.sh
+antibody bundle < "$DOTFILES/antibody/bundles.txt" > ~/.zsh_plugins.sh
 antibody update

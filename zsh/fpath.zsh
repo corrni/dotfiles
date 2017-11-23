@@ -4,6 +4,3 @@
 for topic_folder ($ZSH/*) if [ -d "$topic_folder" ]; then
   fpath=($topic_folder $fpath)
 fi
-
-# homebrew zsh completions
-fpath=(/usr/local/share/zsh-completions $fpath)
