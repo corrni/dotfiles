@@ -25,7 +25,7 @@
     // zenmode
     "zenMode.fullScreen": false,
     "zenMode.restore": true,
-    "workbench.statusBar.visible": true,
+    "workbench.statusBar.visible": false,
 
     // Settings sync
     "sync.gist": "910c32021dd937df07b0c216e0a8921c",
