@@ -120,8 +120,6 @@ export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 # gcloud
 if [ -f '/Users/corrni/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/Users/corrni/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/completion.zsh.inc'; fi
-export GCLOUD_PROJECT_ID="$(gcloud config get-value project -q)"
-export GCLOUD_ZONE="$(gcloud config get-value compute/zone -q)"
 
 ###
 
