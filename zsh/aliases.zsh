@@ -17,4 +17,7 @@ alias mt='mix test'
 alias mtt='mix test --trace'
 alias mto='mix test --only focus'
 
+# Todoist CLI
+alias t='todoist'
+
 eval "$(thefuck --alias)"

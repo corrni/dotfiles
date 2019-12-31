@@ -47,7 +47,7 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit && compinit
+autoload -U compinit && compinit -u
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}; do
@@ -100,34 +100,15 @@ load-nvmrc
 # tabtab source for yarn package - uninstall with `tabtab uninstall yarn`
 [[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
 
-# erlang, elixir
-. /Users/corrni/kerl/20.1-builtdocs/activate
-#export ERLANG_CONFIGURE_OPTIONS="--enable-darwin-64bit --with-ssl=/usr/local/opt/openssl --with-wx"
-[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
-
-# [misc]
-export PATH=$GOPATH/src/github.com/loadimpact/k6:$PATH
-
 # Postgres.app
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-
-# gcloud
-if [ -f '/Users/corrni/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/corrni/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/corrni/google-cloud-sdk/completion.zsh.inc'; fi
-
-###
 
 # [base16] color schemes helper
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# tabtab completions
-[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-[[ -f /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/corrni/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
-
 # JVM
 export SDKMAN_DIR="/Users/corrni/.sdkman"
 [[ -s "/Users/corrni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/corrni/.sdkman/bin/sdkman-init.sh"
 
-# use .localrc for SUPER SECRET CRAP that you don't
 [[ -a ~/.localrc ]] && source ~/.localrc
