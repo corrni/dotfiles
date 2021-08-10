@@ -112,3 +112,10 @@ export SDKMAN_DIR="/Users/corrni/.sdkman"
 [[ -s "/Users/corrni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/corrni/.sdkman/bin/sdkman-init.sh"
 
 [[ -a ~/.localrc ]] && source ~/.localrc
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Added by Amplify CLI binary installer
+export PATH="$HOME/.amplify/bin:$PATH"

@@ -14,10 +14,6 @@ alias yrl='yarn run lint'
 # create-react-app
 alias cra='create-react-app'
 
-# flow
-alias fts='flow-typed search'
-alias ftd='flow-typed --flowVersion=0.54.1'
-#
 # plain old npm
 alias npis='npm install --save'
 alias npisd='npm install --save-dev'

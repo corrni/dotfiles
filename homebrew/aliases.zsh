@@ -18,6 +18,3 @@ brew() {
   esac
 }
 
-
-# caskroom
-alias cask='brew cask'
