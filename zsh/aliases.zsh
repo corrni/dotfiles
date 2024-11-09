@@ -20,4 +20,9 @@ alias mto='mix test --only focus'
 # Todoist CLI
 alias t='todoist'
 
+# Misc dev tools
+alias irdev='infisical run --env=dev'
+alias irstaging='infisical run --env=staging'
+alias irprod='infisical run --env=prod'
+
 eval "$(thefuck --alias)"
