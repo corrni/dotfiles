@@ -28,9 +28,9 @@ git pull --rebase --stat updates "$(git rev-parse --abbrev-ref HEAD)"
 echo "› $DOTFILES/script/install"
 "$DOTFILES/script/install"
 
-if which antibody >/dev/null 2>&1; then
-	echo "› antibody update"
-	antibody update
+if which antidote >/dev/null 2>&1; then
+	echo "› antidote update"
+	antidote update
 fi
 
 echo "› registering last update"
