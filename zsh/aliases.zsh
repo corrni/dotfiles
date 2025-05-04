@@ -21,7 +21,7 @@ alias mto='mix test --only focus'
 alias t='todoist'
 
 # Misc dev tools
-alias irdev='infisical run --env=dev'
+alias irdev='infisical run --watch --env=dev'
 alias irstaging='infisical run --env=staging'
 alias irprod='infisical run --env=prod'
 

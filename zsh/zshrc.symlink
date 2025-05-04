@@ -128,5 +128,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# zsh
+source <(fzf --zsh)
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# 1Password CLI
+eval "$(op completion zsh)"; compdef _op op
